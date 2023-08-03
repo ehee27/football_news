@@ -1,0 +1,93 @@
+form {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 2px 2px 5px grey;
+  background-color: rgb(241, 241, 241);
+  border-radius: 0.25rem;
+  padding: 10px;
+}
+.weeks-button {
+  background-color: orange;
+  color: white;
+  border: none;
+  border-radius: 0.25rem;
+  padding: 5px;
+  font-size: 8pt;
+  width: 40%;
+  border: 2pt solid orange;
+}
+.select {
+  font-family: 'Exo 2', sans-serif;
+}
+.weeks-button:hover {
+  transition: 0.2s ease;
+  background-color: rgba(255, 166, 0, 0.506);
+  cursor: pointer;
+}
+form:hover {
+  transition: 0.3s ease;
+  background-color: white;
+}
+select {
+  padding: 3px;
+  /* margin: 3px; */
+  width: 50%;
+}
+select:hover {
+  cursor: pointer;
+}
+/* -------------------------------------- */
+.boxScore-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 0.2rem;
+  padding: 3px 2px 2px 2px;
+  width: 100%;
+}
+.box-banner {
+  background-color: rgb(88, 88, 88);
+  border-radius: 0.3rem;
+  display: flex;
+  padding: 2px;
+  width: 90%;
+}
+.homeTeam {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: greenyellow;
+  /* border: 1pt solid rgb(207, 207, 207); */
+  border-radius: 0.25rem;
+  /* margin-right: 10px; */
+  width: 50%;
+  padding: 3px 0px 3px 0px;
+}
+.awayTeam {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: greenyellow;
+  /* border: 1pt solid rgb(207, 207, 207); */
+  border-radius: 0.25rem;
+  /* margin-left: 10px; */
+  width: 50%;
+  padding: 3px 0px 3px 0px;
+}
+.name {
+  font-size: 8pt;
+}
+.score {
+  font-size: 10pt;
+}
+.box-body {
+  display: flex;
+  justify-content: right;
+
+  padding: 3px;
+}
+.body-button {
+  margin: 3px;
+}

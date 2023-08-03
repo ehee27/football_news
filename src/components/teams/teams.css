@@ -1,0 +1,27 @@
+/* TEAM CARD */
+.card-container {
+  display: flex;
+  width: 100%;
+  background-color: aliceblue;
+  border: 1pt solid rgb(225, 225, 225);
+  border-radius: 0.3rem;
+  box-shadow: 2px 2px 2px grey;
+  margin-bottom: 10px;
+  padding: 10px 20px 10px 20px;
+}
+.card-header {
+  display: flex;
+}
+.card-logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 30%;
+  /* border: 2pt solid red; */
+}
+.card-name {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 70%;
+}

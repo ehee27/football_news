@@ -1,0 +1,45 @@
+@import url('https://fonts.googleapis.com/css2?family=Abel&family=Agdasima&family=Exo+2:ital,wght@0,400;1,100&family=Mukta:wght@700&family=Orbitron:wght@400;600&family=Oswald:wght@300&family=Permanent+Marker&family=Play:wght@700&family=Poppins:wght@200;300&family=Press+Start+2P&family=Red+Hat+Text&family=Roboto:wght@300&family=Russo+One&family=Staatliches&family=Teko:wght@300;600&display=swap');
+
+.home-slider {
+  background-image: url('../../img/arrowHead.jpeg');
+  background-size: cover;
+  background-position: center;
+
+  height: 400px;
+  width: 97%;
+}
+
+.banner-image {
+  background-image: url('../../img/arrowHead.jpeg');
+  background-size: cover;
+  background-position: center;
+
+  height: 400px;
+  width: 97%;
+  border-radius: 0.2rem;
+  margin-bottom: 10px;
+}
+
+.right-headlines {
+  font-size: 14pt;
+  padding: 0px 0px 10px 0px;
+  /* border-bottom: 1pt solid rgb(201, 201, 201); */
+}
+.content {
+  font-size: 11pt;
+}
+/* --------------- */
+
+/* .news-card {
+  padding: 0px 7px 0px 7px;
+  border: 1pt solid rgb(237, 237, 237);
+  border-radius: 0.25rem;
+  margin-bottom: 3px;
+} */
+.title {
+  font-size: 14pt;
+  font-family: 'Russo One', sans-serif;
+}
+.time-ago {
+  font-size: 9pt;
+}

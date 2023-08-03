@@ -1,0 +1,23 @@
+@import url('https://fonts.googleapis.com/css2?family=Abel&family=Agdasima&family=Exo+2:ital,wght@0,400;1,100&family=Mukta:wght@700&family=Orbitron:wght@400;600&family=Oswald:wght@300&family=Permanent+Marker&family=Play:wght@700&family=Poppins:wght@200;300&family=Press+Start+2P&family=Red+Hat+Text&family=Roboto:wght@300&family=Russo+One&family=Staatliches&family=Teko:wght@300;600&display=swap');
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Exo 2', sans-serif;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+  transition: 0.3s ease;
+
+  display: flex;
+  flex-direction: column;
+  background-color: rgb(211, 211, 211);
+  /* background-image: linear-gradient(grey, rgb(102, 102, 102)); */
+}
+body::-webkit-scrollbar {
+  display: none;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
