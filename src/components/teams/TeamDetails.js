@@ -94,7 +94,7 @@ const TeamDetails = ({ teams }) => {
                 width="100px"
                 height="100px"
               ></img>
-              <Typography className={classes.name} variant="h3">
+              <Typography className={classes.name} variant="h4">
                 {team.City} {team.Name}
               </Typography>
             </Grid>
