@@ -32,32 +32,32 @@ const ScoreBoard = () => {
     // setYear(year)
     setWeek(week)
     fetch(
-      `https://api.sportsdata.io/v3/nfl/scores/json/ScoresBasic/2022/1?key=4f26331b9d48493c8ccbbe65530002fa`
+      `https://api.sportsdata.io/v3/nfl/scores/json/ScoresByWeek/2022/2?key=d650a9d698eb47cab07c36427cbc3434`
     )
-      .then((res) => res.json())
-      .then((result) => {
+      .then(res => res.json())
+      .then(result => {
         setGames(result)
         // console.log(result)
       })
   }, [])
 
   // fetchGames is called on submit and re-fetches the selected year and week
-  const fetchGames = (week) => {
+  const fetchGames = week => {
     console.log('This is the fetch games', week)
     fetch(
-      `https://api.sportsdata.io/v3/nfl/scores/json/ScoresBasic/2022/${week}?key=4f26331b9d48493c8ccbbe65530002fa`
+      `https://api.sportsdata.io/v3/nfl/scores/json/ScoresByWeek/2022/${week}?key=d650a9d698eb47cab07c36427cbc3434`
     )
-      .then((res) => res.json())
-      .then((result) => {
+      .then(res => res.json())
+      .then(result => {
         console.log(result)
         setGames(result)
       })
   }
-  const handleWeek = (e) => {
+  const handleWeek = e => {
     setWeek(e.target.value)
     console.log('WEEK')
   }
-  const handleSubmit = (e) => {
+  const handleSubmit = e => {
     e.preventDefault()
     fetchGames(week)
   }
@@ -70,7 +70,7 @@ const ScoreBoard = () => {
       <Grid item className={classes.scheduleRight} xs={12} sm={10} md={10}>
         {games.length ? (
           <>
-            {games.map((game) => {
+            {games.map(game => {
               return <BoxScore key={game.ScoreID} game={game} />
             })}
           </>

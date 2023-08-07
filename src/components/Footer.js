@@ -17,7 +17,7 @@ const useStyles = makeStyles({
     display: 'flex',
     padding: '10px 10px 20px 10px',
     color: 'white',
-    height: '8vh',
+    height: '4vh',
   },
 })
 

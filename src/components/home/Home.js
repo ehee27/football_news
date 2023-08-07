@@ -14,9 +14,6 @@ const useStyles = makeStyles({
   homeBox: {
     backgroundColor: 'rgb(221, 221, 221)',
     display: 'flex',
-    // marginTop: '20px',
-    // borderRadius: '.25rem',
-    // borderBottom: '6pt solid green',
     padding: '10px 5px 10px 5px',
   },
   homeLeft: {},
@@ -29,7 +26,7 @@ const useStyles = makeStyles({
   },
   homeRight: {},
   newsFeed: {
-    height: '63.5vh',
+    height: '64vh',
     overflowY: 'scroll',
   },
 })
@@ -53,7 +50,7 @@ const Home = ({ schedule }) => {
           {/* ///////////////////////////////////////////////////// */}
 
           <Grid className={classes.leftMid}>
-            <Typography>Upcoming Games</Typography>
+            <Typography variant="h5">Upcoming Games</Typography>
           </Grid>
           {/* ///////////////////////////////////////////////////// */}
           <Grid className={classes.leftBottom}>

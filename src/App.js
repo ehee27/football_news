@@ -11,6 +11,7 @@ import TeamDetails from './components/teams/TeamDetails'
 import ScoreBoard from './components/schedule/ScoreBoard'
 import Standings from './components/standings/Standings'
 import Recap from './components/schedule/Recap'
+import Notfound from './components/Notfound'
 //
 import {
   createTheme,
@@ -63,9 +64,9 @@ const theme = createTheme({
 })
 
 const API_TEAMS =
-  'https://api.sportsdata.io/v3/nfl/scores/json/Teams?key=4f26331b9d48493c8ccbbe65530002fa'
+  'https://api.sportsdata.io/v3/nfl/scores/json/Teams?key=d650a9d698eb47cab07c36427cbc3434'
 const API_SCHEDULE =
-  'https://api.sportsdata.io/v3/nfl/scores/json/Schedules/2022?key=4f26331b9d48493c8ccbbe65530002fa'
+  'https://api.sportsdata.io/v3/nfl/scores/json/Schedules/2022?key=d650a9d698eb47cab07c36427cbc3434'
 
 function App() {
   //
@@ -102,6 +103,7 @@ function App() {
               <Route path="scoreboard" element={<ScoreBoard />} />
               <Route path="standings" element={<Standings />} />
               <Route path="recap" element={<Recap schedule={schedule} />} />
+              <Route exact path="*" element={<Notfound />} />
             </Routes>
             <Footer />
           </Router>

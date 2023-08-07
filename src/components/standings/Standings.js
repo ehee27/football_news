@@ -17,58 +17,47 @@ const useStyles = makeStyles({
     borderRadius: '.25rem',
     // marginTop: '5px',
   },
-  standingsBoard: {
-    display: 'flex',
-  },
   standingsBanner: {
     backgroundImage: 'linear-gradient(rgb(56, 56, 56), rgb(0, 0, 0))',
     display: 'flex',
-    padding: '10px 10px 5px 10px',
+    flexDirection: 'column',
     borderBottomLeftRadius: '.5rem',
     borderBottomRightRadius: '.5rem',
   },
-  bannerLeft: {
+  bannerUpper: {
     display: 'flex',
-    padding: '0px 0px 5px 10px',
+    padding: '15px 10px 5px 10px',
   },
-  bannerLeftTitle: {
+  bannerUpperTitle: {
     display: 'flex',
     flexDirection: 'column',
-    // border: '2pt solid orange',
-    width: '60%',
   },
-  bannerLeftLogo: {
+  bannerUpperLogo: {
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
-    // border: '2pt solid green',
-    width: '40%',
+    marginLeft: '50px',
   },
   bannerLeftButtons: {
     display: 'flex',
-    // paddingTop: '10px',
   },
   week: {
     color: 'orange',
   },
-  bannerRight: {
+  bannerMiddle: {
+    padding: '10px 10px 10px 10px',
+  },
+  bannerLower: {
     display: 'flex',
-    flexDirection: 'column',
-    padding: '10px',
-    justifyContent: 'center',
-    alignItems: 'center',
-    // margin: '0px 0px 10px 0px',
-    // border: '1pt solid rgb(212, 212, 212)',
+    backgroundColor: 'white',
+    borderBottomLeftRadius: '.5rem',
+    borderBottomRightRadius: '.5rem',
   },
   playoffTitle: {
     color: 'white',
   },
-  playoffSeed: {
-    color: 'white',
-    fontSize: '10pt',
-  },
   button: {
-    width: '50%',
+    width: '10%',
     height: '27px',
     fontSize: '9pt',
     marginRight: '10px',
@@ -79,11 +68,25 @@ const useStyles = makeStyles({
       backgroundColor: 'rgba(255, 166, 0, 0.53)',
     },
   },
+  seedTitle: {
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  logo: {
+    marginLeft: '10px',
+  },
+  seed: {
+    color: 'gray',
+    padding: '2px 5px 2px 5px',
+    fontSize: '14pt',
+    marginRight: '10px',
+  },
 })
 
 // Standings API data
 const API =
-  'https://api.sportsdata.io/v3/nfl/scores/json/Standings/2022?key=4f26331b9d48493c8ccbbe65530002fa'
+  'https://api.sportsdata.io/v3/nfl/scores/json/Standings/2022?key=d650a9d698eb47cab07c36427cbc3434'
 
 const AFC = [
   { id: 1, div: 'AFC', con: 'West' },
@@ -122,69 +125,113 @@ const Standings = () => {
     <Container className={classes.container}>
       {/* /////////////////////////////////////////////////////////////// */}
       <Grid className={classes.standingsBanner} container spacing={0}>
-        <Grid className={classes.bannerLeft} item xs={12} sm={12} md={6}>
-          {/* <Grid className={classes.leftTop}> */}
-          <Grid className={classes.bannerLeftTitle}>
+        {/* /////////////////////////////////////////////////////////////// */}
+        <Grid className={classes.bannerUpper} item xs={12} sm={12} md={6}>
+          <Grid className={classes.bannerUpperTitle}>
             <Typography className={classes.title} variant="h6">
               Standings
             </Typography>
-            <Typography className={classes.week} variant="h4">
+            <Typography className={classes.week} variant="h3">
               WEEK 18
             </Typography>
-            <Grid className={classes.bannerLeftButtons}>
-              <Button
-                className={classes.button}
-                id="afc"
-                variant="outlined"
-                // color="primary"
-                onClick={handleAFC}
-              >
-                AFC
-              </Button>
-              <Button
-                className={classes.button}
-                id="nfc"
-                variant="outlined"
-                // color="primary"
-                onClick={handleNFC}
-              >
-                NFC
-              </Button>
-            </Grid>
           </Grid>
-          <Grid className={classes.bannerLeftLogo}>
+          <Grid className={classes.bannerUpperLogo}>
             {activeConference === 'AFC' ? (
               activeConference === 'NFC' ? (
-                <spa></spa>
+                <span>This is IF BOTH</span>
               ) : (
-                <>
-                  <img src={afcLogo} height="90px" width="90px"></img>
-                </>
+                <Grid className={classes.seedTitle}>
+                  {/* <span>Playoff Seeding</span> */}
+                  <img
+                    className={classes.logo}
+                    alt="afc-logo"
+                    src={afcLogo}
+                    height="60px"
+                    width="60px"
+                  ></img>
+                </Grid>
               )
             ) : (
-              <>
-                <img src={nfcLogo} height="90px" width="90px"></img>
-              </>
+              <Grid className={classes.seedTitle}>
+                {/* <span>Playoff Seeding</span> */}
+                <img
+                  className={classes.logo}
+                  alt="nfc=logo"
+                  src={nfcLogo}
+                  height="60px"
+                  width="60px"
+                ></img>
+              </Grid>
             )}
           </Grid>
-          {/* </Grid> */}
         </Grid>
-
-        <Grid className={classes.bannerRight} item xs={12} sm={12} md={6}>
-          <Typography className={classes.playoffTitle}>
-            Playoff seeds.....
-          </Typography>
-          <Grid className={classes.playoffSeeds}>
-            <Typography className={classes.playoffSeed}>
-              Playoof seed #1.....
-            </Typography>
-            <Typography className={classes.playoffSeed}>
-              Playoof seed #2.....
-            </Typography>
-            <Typography className={classes.playoffSeed}>
-              Playoof seed #3.....
-            </Typography>
+        <Grid className={classes.bannerMiddle}>
+          <Grid className={classes.bannerLeftButtons}>
+            <Button
+              className={classes.button}
+              id="afc"
+              variant="outlined"
+              onClick={handleAFC}
+            >
+              AFC
+            </Button>
+            <Button
+              className={classes.button}
+              id="nfc"
+              variant="outlined"
+              onClick={handleNFC}
+            >
+              NFC
+            </Button>
           </Grid>
+        </Grid>
+        {/* /////////////////////////////////////////////////////////////// */}
+        <Grid className={classes.bannerLower} container spacing={1}>
+          {activeConference === 'AFC' ? (
+            activeConference === 'NFC' ? (
+              <span>This is IF BOTH</span>
+            ) : (
+              <>
+                <Grid item xs={12} sm={12} md={3}>
+                  <Typography className={classes.seed} variant="h6">
+                    1. Chiefs 13-3
+                  </Typography>
+                </Grid>
+
+                <Grid item xs={12} sm={12} md={3}>
+                  <Typography className={classes.seed} variant="h6">
+                    2. Bills 13-3
+                  </Typography>
+                </Grid>
+
+                <Grid item xs={12} sm={12} md={3}>
+                  <Typography className={classes.seed} variant="h6">
+                    3. Bengals 12 - 4
+                  </Typography>
+                </Grid>
+              </>
+            )
+          ) : (
+            <>
+              <Grid item xs={12} sm={12} md={3}>
+                <Typography className={classes.seed} variant="h6">
+                  1. Eagles 13 - 4
+                </Typography>
+              </Grid>
+
+              <Grid item xs={12} sm={12} md={3}>
+                <Typography className={classes.seed} variant="h6">
+                  2. Vikings 13 - 4
+                </Typography>
+              </Grid>
+
+              <Grid item xs={12} sm={12} md={3}>
+                <Typography className={classes.seed} variant="h6">
+                  3. 49ers 13 - 4
+                </Typography>
+              </Grid>
+            </>
+          )}
         </Grid>
       </Grid>
 

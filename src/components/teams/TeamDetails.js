@@ -2,11 +2,11 @@ import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { Link } from 'react-router-dom'
 import {
-  Container,
   Typography,
   Grid,
   Button,
   makeStyles,
+  Container,
 } from '@material-ui/core'
 
 const API_PLAYERS =
@@ -14,29 +14,41 @@ const API_PLAYERS =
 
 const useStyles = makeStyles({
   container: {
-    padding: '20px 10px 10px 10px',
+    marginTop: '20px',
+    // padding: '0px 20px 0px 20px',
+    // height: '100%',
+  },
+  teamBox: {
+    backgroundColor: 'rgb(221, 221, 221)',
+    display: 'flex',
+    padding: '10px 5px 10px 5px',
   },
   banner: {
     display: 'flex',
     alignItems: 'center',
-    padding: '10px 30px 10px 30px',
+    padding: '0px 10px 0px 10px',
+    height: '10%',
   },
   name: {
     marginLeft: '30px',
   },
-  details: {
-    // borderBottom: '2pt solid rgb(212, 212, 212)',
-    padding: '10px',
+  middle: {
+    background: 'white',
+    padding: '20px',
+    height: '20%',
+    backgroundColor: 'black',
+    color: 'white',
   },
   news: {
-    border: '2pt solid rgb(212, 212, 212)',
-    borderRadius: '.25rem',
-    padding: '10px 17px 20px 17px',
-    height: '50vh',
+    background: 'white',
+    // border: '2pt solid rgb(212, 212, 212)',
+    padding: '20px',
+    height: '50%',
   },
   button: {
     width: '10%',
     marginTop: '10px',
+    backgroundColor: 'orange',
     border: '2pt solid orange',
     color: 'white',
     '&:hover': {
@@ -57,25 +69,25 @@ const TeamDetails = ({ teams }) => {
     if (team) target = team[0].Key
 
     fetch(
-      `https://api.sportsdata.io/v3/nfl/scores/json/NewsByTeam/${target}?key=4f26331b9d48493c8ccbbe65530002fa`
+      `https://api.sportsdata.io/v3/nfl/scores/json/NewsByTeam/${target}?key=d650a9d698eb47cab07c36427cbc3434`
     )
-      .then((res) => res.json())
-      .then((result) => {
+      .then(res => res.json())
+      .then(result => {
         console.log(result)
         setNews(result)
       })
   }, [])
 
   let team
-  if (teams) team = teams.filter((item) => item.TeamID === Number(id))
+  if (teams) team = teams.filter(item => item.TeamID === Number(id))
   //
 
   return (
-    <>
+    <Container className={classes.container}>
       {team?.map((team, i) => {
         return (
-          <Container className={classes.container} key={i}>
-            <Grid className={classes.banner}>
+          <Grid className={classes.teamBox} key={i} container spacing={0}>
+            <Grid className={classes.banner} item xs={12} sm={12} md={12}>
               <img
                 src={team.WikipediaLogoUrl}
                 alt="team-logo"
@@ -87,13 +99,19 @@ const TeamDetails = ({ teams }) => {
               </Typography>
             </Grid>
             {/* ////////////////////////////////////// */}
-            <Grid className={classes.details}>
-              <Typography variant="h6">Head Coach: {team.HeadCoach}</Typography>
-              <Typography variant="h6">
-                Offensive Coordinator: {team.OffensiveCoordinator}
+            <Grid className={classes.middle} item xs={12} sm={12} md={12}>
+              <Typography variant="body1">
+                Head Coach:{' '}
+                <span style={{ color: 'orange' }}>{team.HeadCoach}</span>
+              </Typography>
+              <Typography variant="body1">
+                Offensive Coordinator:{' '}
+                <span style={{ color: 'orange' }}>
+                  {team.OffensiveCoordinator}
+                </span>
               </Typography>
             </Grid>
-            <Grid className={classes.news}>
+            <Grid className={classes.news} item xs={12} sm={12} md={12}>
               {news.map((item, i) => {
                 return (
                   <Grid key={i}>
@@ -116,10 +134,10 @@ const TeamDetails = ({ teams }) => {
                 )
               })}
             </Grid>
-          </Container>
+          </Grid>
         )
       })}
-    </>
+    </Container>
   )
 }
 

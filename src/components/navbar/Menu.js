@@ -34,9 +34,9 @@ const Menu = () => {
         {/* <Link className={classes.link} to="/recap">
           RECAP
         </Link> */}
-        <Link className={classes.link} to="/recap">
+        {/* <Link className={classes.link} to="/recap">
           NEWS
-        </Link>
+        </Link> */}
         <a className={classes.link} href="#standings">
           STANDINGS
         </a>

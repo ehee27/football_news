@@ -10,12 +10,10 @@ import {
 
 const useStyles = makeStyles({
   container: {
-    // height: '80%',
     width: '99%',
     backgroundSize: 'cover',
     backgroundPosition: 'center',
-
-    padding: '0px 0px 20px 0px',
+    paddingBottom: '25px',
   },
   cardMedia: {
     height: '350px',

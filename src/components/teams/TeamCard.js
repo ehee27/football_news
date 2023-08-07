@@ -66,14 +66,14 @@ const TeamCard = ({ team }) => {
               </Typography>
             </Grid>
           </CardContent>
-          <CardActions disableSpacing>
+          {/* <CardActions disableSpacing>
             <IconButton aria-label="add to favorites">
               <SportsFootballIcon />
             </IconButton>
             <IconButton aria-label="share">
               <ShareIcon />
             </IconButton>
-          </CardActions>
+          </CardActions> */}
         </Card>
       </Link>
     </>

@@ -27,7 +27,7 @@ const Teams = ({ teams }) => {
   }, [])
   return (
     <Container className={classes.container}>
-      <Grid container spacing={2}>
+      <Grid container spacing={4}>
         {teams?.map(team => {
           return (
             <Grid item key={team.TeamID} xs={12} sm={12} md={4}>

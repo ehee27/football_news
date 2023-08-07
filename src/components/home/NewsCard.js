@@ -45,7 +45,7 @@ const NewsCard = ({ news }) => {
       </Grid>
       <Grid>
         <Typography className={classes.body} gutterBottom>
-          {news.Content.substr(0, 115)}
+          {news.Content.substr(0, 127)}
         </Typography>
       </Grid>
       <Link to={news.OriginalSourceUrl} target="_blank">
