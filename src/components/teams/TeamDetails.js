@@ -30,7 +30,7 @@ const useStyles = makeStyles({
     height: '10%',
   },
   name: {
-    marginLeft: '30px',
+    marginLeft: '20px',
   },
   middle: {
     background: 'white',
@@ -55,6 +55,9 @@ const useStyles = makeStyles({
       transition: '.2s ease',
       backgroundColor: 'rgba(255, 166, 0, 0.53)',
     },
+  },
+  link: {
+    textDecoration: 'none',
   },
 })
 
@@ -121,7 +124,11 @@ const TeamDetails = ({ teams }) => {
                     <Typography variant="body1" gutterBottom>
                       {item.Content}
                     </Typography>
-                    <Link to={item.OriginalSourceUrl} target="_blank">
+                    <Link
+                      className={classes.link}
+                      to={item.OriginalSourceUrl}
+                      target="_blank"
+                    >
                       <Button
                         className={classes.button}
                         // variant="contained"
