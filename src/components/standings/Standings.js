@@ -26,7 +26,7 @@ const useStyles = makeStyles({
   },
   bannerUpper: {
     display: 'flex',
-    padding: '15px 10px 5px 10px',
+    padding: '7px 10px 5px 10px',
   },
   bannerUpperTitle: {
     display: 'flex',
@@ -40,6 +40,7 @@ const useStyles = makeStyles({
   },
   bannerLeftButtons: {
     display: 'flex',
+    paddingBottom: '10px',
   },
   week: {
     color: 'orange',
