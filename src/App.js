@@ -64,9 +64,9 @@ const theme = createTheme({
 })
 
 const API_TEAMS =
-  'https://api.sportsdata.io/v3/nfl/scores/json/Teams?key=d650a9d698eb47cab07c36427cbc3434'
+  'https://api.sportsdata.io/v3/nfl/scores/json/Teams?key=1f12ca4661284f288d5f6bbd9e7e503b'
 const API_SCHEDULE =
-  'https://api.sportsdata.io/v3/nfl/scores/json/Schedules/2022?key=d650a9d698eb47cab07c36427cbc3434'
+  'https://api.sportsdata.io/v3/nfl/scores/json/Schedules/2022?key=1f12ca4661284f288d5f6bbd9e7e503b'
 
 function App() {
   //

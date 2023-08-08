@@ -4,7 +4,7 @@ import './home.css'
 import NewsCard from './NewsCard'
 
 const gamesAPI =
-  'https://api.sportsdata.io/v3/nfl/scores/json/News?key=d650a9d698eb47cab07c36427cbc3434'
+  'https://api.sportsdata.io/v3/nfl/scores/json/News?key=1f12ca4661284f288d5f6bbd9e7e503b'
 
 const useStyles = makeStyles({
   container: {

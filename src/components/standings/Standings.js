@@ -87,7 +87,7 @@ const useStyles = makeStyles({
 
 // Standings API data
 const API =
-  'https://api.sportsdata.io/v3/nfl/scores/json/Standings/2022?key=d650a9d698eb47cab07c36427cbc3434'
+  'https://api.sportsdata.io/v3/nfl/scores/json/Standings/2022?key=1f12ca4661284f288d5f6bbd9e7e503b'
 
 const AFC = [
   { id: 1, div: 'AFC', con: 'West' },

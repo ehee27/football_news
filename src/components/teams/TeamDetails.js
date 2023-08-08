@@ -72,7 +72,8 @@ const TeamDetails = ({ teams }) => {
     if (team) target = team[0].Key
 
     fetch(
-      `https://api.sportsdata.io/v3/nfl/scores/json/NewsByTeam/${target}?key=d650a9d698eb47cab07c36427cbc3434`
+      // `https://api.sportsdata.io/v3/nfl/scores/json/NewsByTeam/${target}?key=d650a9d698eb47cab07c36427cbc3434`
+      `https://api.sportsdata.io/v3/nfl/scores/json/NewsByTeam/${target}?key=1f12ca4661284f288d5f6bbd9e7e503b`
     )
       .then(res => res.json())
       .then(result => {

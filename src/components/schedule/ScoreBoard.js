@@ -32,7 +32,7 @@ const ScoreBoard = () => {
     // setYear(year)
     setWeek(week)
     fetch(
-      `https://api.sportsdata.io/v3/nfl/scores/json/ScoresByWeek/2022/2?key=d650a9d698eb47cab07c36427cbc3434`
+      `https://api.sportsdata.io/v3/nfl/scores/json/ScoresByWeek/2022/1?key=1f12ca4661284f288d5f6bbd9e7e503b`
     )
       .then(res => res.json())
       .then(result => {
@@ -45,7 +45,7 @@ const ScoreBoard = () => {
   const fetchGames = week => {
     console.log('This is the fetch games', week)
     fetch(
-      `https://api.sportsdata.io/v3/nfl/scores/json/ScoresByWeek/2022/${week}?key=d650a9d698eb47cab07c36427cbc3434`
+      `https://api.sportsdata.io/v3/nfl/scores/json/ScoresByWeek/2022/${week}?key=1f12ca4661284f288d5f6bbd9e7e503b`
     )
       .then(res => res.json())
       .then(result => {
