@@ -1,7 +1,7 @@
 import './home.css'
 import { slides } from './carouselSlides'
 import Item from './CarouselCard'
-import Recap from '../schedule/Recap'
+import Recap from '../schedule/Schedule'
 import { Container, Typography, Grid, makeStyles } from '@material-ui/core'
 import Carousel from 'react-material-ui-carousel'
 import NewsFeed from './NewsFeed'
@@ -16,17 +16,27 @@ const useStyles = makeStyles({
     display: 'flex',
     padding: '10px 5px 10px 5px',
   },
-  homeLeft: {},
-  leftTop: { height: '44vh' },
-  leftMid: { padding: '0px 17px 0px 17px' },
-  leftBottom: {
+  homeLeft: { border: '2pt solid green', height: '65vh' },
+  leftTop: { height: '55%' },
+  leftMid: {
+    height: '5%',
     padding: '0px 17px 0px 17px',
-    height: '20vh',
-    overflowY: 'scroll',
+    marginTop: '10px',
+    // border: '2pt solid red',
   },
-  homeRight: {},
+  leftBottom: {
+    height: '36%',
+    padding: '0px 17px 0px 17px',
+    overflowY: 'scroll',
+    // border: '2pt solid red',
+  },
+  homeRight: {
+    border: '2pt solid green',
+    height: '65vh',
+    paddingBottom: '20px',
+  },
   newsFeed: {
-    height: '64vh',
+    height: '97%',
     overflowY: 'scroll',
   },
 })
@@ -48,6 +58,15 @@ const Home = ({ schedule }) => {
             </Carousel>
           </Grid>
           {/* ///////////////////////////////////////////////////// */}
+          {/* <Grid className={classes.leftFlex} container spacing={1}>
+            <Grid className={classes.leftMid} item xs={12} sm={12} md={12}>
+              <Typography variant="h5">Upcoming Games</Typography>
+            </Grid> */}
+          {/* ///////////////////////////////////////////////////// */}
+          {/* <Grid className={classes.leftBottom} item xs={12} sm={12} md={12}>
+              <Recap schedule={schedule} />
+            </Grid>
+          </Grid> */}
 
           <Grid className={classes.leftMid}>
             <Typography variant="h5">Upcoming Games</Typography>

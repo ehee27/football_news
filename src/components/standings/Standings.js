@@ -31,6 +31,7 @@ const useStyles = makeStyles({
   bannerUpperTitle: {
     display: 'flex',
     flexDirection: 'column',
+    paddingLeft: '10px',
   },
   bannerUpperLogo: {
     display: 'flex',
@@ -41,6 +42,7 @@ const useStyles = makeStyles({
   bannerLeftButtons: {
     display: 'flex',
     paddingBottom: '10px',
+    paddingLeft: '10px',
   },
   week: {
     color: 'orange',

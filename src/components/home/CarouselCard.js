@@ -11,12 +11,13 @@ import {
 const useStyles = makeStyles({
   container: {
     width: '99%',
+
     backgroundSize: 'cover',
     backgroundPosition: 'center',
-    paddingBottom: '25px',
+    // paddingBottom: '25px',
   },
   cardMedia: {
-    height: '350px',
+    height: '300px',
   },
   cardContent: {
     height: '100px',
@@ -35,10 +36,10 @@ const CarouselCard = ({ item }) => {
         image={item.imageURL}
       />
       <CardContent className={classes.cardContent}>
-        <Typography variant="h4" gutterBottom>
+        <Typography variant="h5" gutterBottom>
           {item.title}
         </Typography>
-        <Typography variant="subtitle1" gutterBottom>
+        <Typography variant="body1" gutterBottom>
           {item.body}
         </Typography>
       </CardContent>

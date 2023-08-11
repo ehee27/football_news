@@ -10,7 +10,7 @@ import TeamList from './components/teams/TeamList'
 import TeamDetails from './components/teams/TeamDetails'
 import ScoreBoard from './components/schedule/ScoreBoard'
 import Standings from './components/standings/Standings'
-import Recap from './components/schedule/Recap'
+import Schedule from './components/schedule/Schedule'
 import Notfound from './components/Notfound'
 //
 import {
@@ -102,7 +102,7 @@ function App() {
               <Route path="teams/:id" element={<TeamDetails teams={teams} />} />
               <Route path="scoreboard" element={<ScoreBoard />} />
               <Route path="standings" element={<Standings />} />
-              <Route path="recap" element={<Recap schedule={schedule} />} />
+              <Route path="recap" element={<Schedule schedule={schedule} />} />
               <Route exact path="*" element={<Notfound />} />
             </Routes>
             <Footer />

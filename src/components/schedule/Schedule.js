@@ -58,11 +58,13 @@ const useStyles = makeStyles({
 const Recap = ({ schedule }) => {
   const classes = useStyles()
   //
-  console.log('This is the schedule', schedule)
+  // console.log('This is the schedule', schedule)
   //
-  let date = new Intl.DateTimeFormat('en-US', { dateStyle: 'full' }).format(
-    new Date()
-  )
+  let date = new Intl.DateTimeFormat('en-US', {
+    dateStyle: 'full',
+    timeStyle: 'full',
+  }).format(new Date())
+  console.log('This is the date format----', date)
 
   //
   return (
@@ -72,7 +74,12 @@ const Recap = ({ schedule }) => {
           return (
             <Grid className={classes.gameBox} key={i}>
               <Typography className={classes.date}>
-                {/* {format(parseInt(`${item.Date}`), 'MM,dd,yyyy')} */}
+                {/* {new Intl.DateTimeFormat('en-US', {
+                  dateStyle: 'full',
+                  timeStyle: 'full',
+                }).format(item.Date)} */}
+                {/* {format(item.Date, 'YYYY-MM-DDTHH:mm:ss.sssZ')} */}
+
                 {item.Date}
               </Typography>
 
