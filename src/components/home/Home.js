@@ -16,7 +16,7 @@ const useStyles = makeStyles({
     display: 'flex',
     padding: '10px 5px 10px 5px',
   },
-  homeLeft: { border: '2pt solid green', height: '65vh' },
+  homeLeft: { height: '65vh' },
   leftTop: { height: '55%' },
   leftMid: {
     height: '5%',
@@ -25,14 +25,14 @@ const useStyles = makeStyles({
     // border: '2pt solid red',
   },
   leftBottom: {
-    height: '36%',
+    height: '38%',
     padding: '0px 17px 0px 17px',
     overflowY: 'scroll',
     // border: '2pt solid red',
   },
   homeRight: {
-    border: '2pt solid green',
-    height: '65vh',
+    // border: '2pt solid green',
+    height: '65.5vh',
     paddingBottom: '20px',
   },
   newsFeed: {
