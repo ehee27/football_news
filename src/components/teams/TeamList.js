@@ -1,10 +1,8 @@
 // when we map the teams array we use the outer Grid as container spacing and then them 'item' grid WITHIN the mapping - include the key
 
-import React, { useState, useEffect, useContext } from 'react'
-// import './teams.css'
+// import React, { useState, useEffect, useContext } from 'react'
 import TeamCard from './TeamCard'
-import { Container, Typography, Grid, makeStyles } from '@material-ui/core'
-// import { TeamsContext } from '../context/teamsContext'
+import { Container, Grid, makeStyles } from '@material-ui/core'
 
 const useStyles = makeStyles({
   container: {
@@ -12,19 +10,9 @@ const useStyles = makeStyles({
   },
 })
 
-const API_TEAMS =
-  'https://api.sportsdata.io/v3/nfl/scores/json/Schedules/2022?key=4f26331b9d48493c8ccbbe65530002fa'
-
 const Teams = ({ teams }) => {
   const classes = useStyles()
   //
-  useEffect(() => {
-    fetch(API_TEAMS)
-      .then(res => res.json())
-      .then(result => {
-        console.log('This is the result data', result)
-      })
-  }, [])
   return (
     <Container className={classes.container}>
       <Grid container spacing={4}>

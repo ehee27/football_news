@@ -4,7 +4,8 @@ import { format } from 'date-fns'
 
 const useStyles = makeStyles({
   container: {
-    padding: '0px 0px 10px 0px',
+    padding: '0px 10px 10px 0px',
+    // border: '3pt solid pink',
   },
   gameBox: {
     backgroundColor: 'rgb(238, 238, 238)',
@@ -55,7 +56,7 @@ const useStyles = makeStyles({
   },
 })
 
-const Recap = ({ schedule }) => {
+const TVSchedule = ({ schedule }) => {
   const classes = useStyles()
   //
   // console.log('This is the schedule', schedule)
@@ -73,15 +74,7 @@ const Recap = ({ schedule }) => {
         {schedule?.map((item, i) => {
           return (
             <Grid className={classes.gameBox} key={i}>
-              <Typography className={classes.date}>
-                {/* {new Intl.DateTimeFormat('en-US', {
-                  dateStyle: 'full',
-                  timeStyle: 'full',
-                }).format(item.Date)} */}
-                {/* {format(item.Date, 'YYYY-MM-DDTHH:mm:ss.sssZ')} */}
-
-                {item.Date}
-              </Typography>
+              <Typography className={classes.date}>{item.Date}</Typography>
 
               <Grid className={classes.broadcast}>{item.Channel}</Grid>
 
@@ -107,4 +100,4 @@ const Recap = ({ schedule }) => {
   )
 }
 
-export default Recap
+export default TVSchedule

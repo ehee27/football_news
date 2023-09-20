@@ -12,6 +12,7 @@ import ScoreBoard from './components/schedule/ScoreBoard'
 import Standings from './components/standings/Standings'
 import Schedule from './components/schedule/Schedule'
 import Notfound from './components/Notfound'
+// import { TeamsContextProvider } from './components/context/teamsContext'
 //
 import {
   createTheme,
@@ -91,7 +92,7 @@ function App() {
   return (
     <ThemeProvider theme={fontTheme}>
       <ThemeProvider theme={theme}>
-        {/* <TeamsContext.Provider value={teams}> */}
+        {/* <TeamsContextProvider> */}
         <div className="App">
           <Router>
             <Navbar />
@@ -108,7 +109,7 @@ function App() {
             <Footer />
           </Router>
         </div>
-        {/* </TeamsContext.Provider> */}
+        {/* </TeamsContextProvider> */}
       </ThemeProvider>
     </ThemeProvider>
   )

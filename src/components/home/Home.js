@@ -1,7 +1,7 @@
 import './home.css'
 import { slides } from './carouselSlides'
 import Item from './CarouselCard'
-import Recap from '../schedule/Schedule'
+import TVSchedule from '../schedule/Schedule'
 import { Container, Typography, Grid, makeStyles } from '@material-ui/core'
 import Carousel from 'react-material-ui-carousel'
 import NewsFeed from './NewsFeed'
@@ -16,17 +16,18 @@ const useStyles = makeStyles({
     display: 'flex',
     padding: '10px 5px 10px 5px',
   },
-  homeLeft: { height: '65vh' },
-  leftTop: { height: '55%' },
+  // homeLeft: { height: '65vh', border: '4pt solid red' },
+  homeLeft: { height: '65.5vh' },
+  leftTop: {},
   leftMid: {
     height: '5%',
-    padding: '0px 17px 0px 17px',
-    marginTop: '10px',
-    // border: '2pt solid red',
+    padding: '0px 10px 0px 10px',
+    marginBottom: '5px',
+    // border: '2pt solid blue',
   },
   leftBottom: {
-    height: '38%',
-    padding: '0px 17px 0px 17px',
+    height: '35%',
+    padding: '0px 10px 0px 10px',
     overflowY: 'scroll',
     // border: '2pt solid red',
   },
@@ -34,6 +35,7 @@ const useStyles = makeStyles({
     // border: '2pt solid green',
     height: '65.5vh',
     paddingBottom: '20px',
+    // border: '4pt solid yellow',
   },
   newsFeed: {
     height: '97%',
@@ -57,23 +59,13 @@ const Home = ({ schedule }) => {
               ))}
             </Carousel>
           </Grid>
-          {/* ///////////////////////////////////////////////////// */}
-          {/* <Grid className={classes.leftFlex} container spacing={1}>
-            <Grid className={classes.leftMid} item xs={12} sm={12} md={12}>
-              <Typography variant="h5">Upcoming Games</Typography>
-            </Grid> */}
-          {/* ///////////////////////////////////////////////////// */}
-          {/* <Grid className={classes.leftBottom} item xs={12} sm={12} md={12}>
-              <Recap schedule={schedule} />
-            </Grid>
-          </Grid> */}
 
           <Grid className={classes.leftMid}>
             <Typography variant="h5">Upcoming Games</Typography>
           </Grid>
           {/* ///////////////////////////////////////////////////// */}
           <Grid className={classes.leftBottom}>
-            <Recap schedule={schedule} />
+            <TVSchedule schedule={schedule} />
           </Grid>
           {/* ///////////////////////////////////////////////////// */}
         </Grid>

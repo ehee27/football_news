@@ -11,17 +11,16 @@ import {
 const useStyles = makeStyles({
   container: {
     width: '99%',
+    height: '35vh',
 
     backgroundSize: 'cover',
     backgroundPosition: 'center',
     // paddingBottom: '25px',
   },
   cardMedia: {
-    height: '300px',
+    height: '60%',
   },
-  cardContent: {
-    height: '100px',
-  },
+  cardContent: {},
 })
 
 const CarouselCard = ({ item }) => {
