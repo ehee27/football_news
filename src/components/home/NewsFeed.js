@@ -8,7 +8,7 @@ const gamesAPI =
 
 const useStyles = makeStyles({
   container: {
-    marginTop: '10px',
+    marginTop: '0px',
   },
 })
 
