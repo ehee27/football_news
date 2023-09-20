@@ -14,11 +14,12 @@ const useStyles = makeStyles({
   homeBox: {
     backgroundColor: 'rgb(221, 221, 221)',
     display: 'flex',
-    padding: '10px 5px 10px 5px',
+    padding: '3px 5px 0px 0px',
+    borderBottom: '7pt solid green',
   },
   // homeLeft: { height: '65vh', border: '4pt solid red' },
-  homeLeft: { height: '65.5vh' },
-  leftTop: {},
+  homeLeft: { height: '64.5vh' },
+  leftTop: { paddingLeft: '5px' },
   leftMid: {
     height: '5%',
     padding: '0px 10px 0px 10px',
@@ -27,13 +28,12 @@ const useStyles = makeStyles({
   },
   leftBottom: {
     height: '35%',
-    padding: '0px 10px 0px 10px',
+    padding: '0px 10px 0px 5px',
     overflowY: 'scroll',
-    // border: '2pt solid red',
   },
   homeRight: {
     // border: '2pt solid green',
-    height: '65.5vh',
+    height: '65vh',
     paddingBottom: '20px',
     // border: '4pt solid yellow',
   },
