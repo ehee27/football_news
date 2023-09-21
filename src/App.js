@@ -12,6 +12,8 @@ import ScoreBoard from './components/schedule/ScoreBoard'
 import Standings from './components/standings/Standings'
 import Schedule from './components/schedule/Schedule'
 import Notfound from './components/Notfound'
+import AFCStandings from './components/standings/AFCStandings'
+import NFCStandings from './components/standings/NFCStandings'
 // import { TeamsContextProvider } from './components/context/teamsContext'
 //
 import {
@@ -73,6 +75,7 @@ function App() {
   //
   const [teams, setTeams] = useState([])
   const [schedule, setSchedule] = useState([])
+  const [standings, setStandings] = useState([])
   //
   useEffect(() => {
     fetch(API_TEAMS)
@@ -80,14 +83,21 @@ function App() {
       .then(result => {
         setTeams(result)
       })
-  }, [])
+  }, [teams])
   useEffect(() => {
     fetch(API_SCHEDULE)
       .then(res => res.json())
       .then(result => {
         setSchedule(result)
       })
-  }, [])
+  }, [schedule])
+  // useEffect(() => {
+  //   fetch(standingsAPI)
+  //     .then(res => res.json())
+  //     .then(result => {
+  //       setStandings(result)
+  //     })
+  // }, [standings])
 
   return (
     <ThemeProvider theme={fontTheme}>
@@ -104,6 +114,8 @@ function App() {
               <Route path="scoreboard" element={<ScoreBoard />} />
               <Route path="standings" element={<Standings />} />
               <Route path="recap" element={<Schedule schedule={schedule} />} />
+              <Route path="afc-standings" element={<AFCStandings />} />
+              <Route path="nfc-standings" element={<NFCStandings />} />
               <Route exact path="*" element={<Notfound />} />
             </Routes>
             <Footer />

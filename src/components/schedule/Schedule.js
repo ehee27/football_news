@@ -65,7 +65,7 @@ const TVSchedule = ({ schedule }) => {
     dateStyle: 'full',
     timeStyle: 'full',
   }).format(new Date())
-  console.log('This is the date format----', date)
+  // console.log('This is the date format----', date)
 
   //
   return (

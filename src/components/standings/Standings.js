@@ -6,7 +6,9 @@ import {
   Button,
   makeStyles,
 } from '@material-ui/core'
-import StandingsBoard from './StandingsBoard'
+// import StandingsBoard from './StandingsBoard'
+import AFCStandings from './AFCStandings'
+import NFCStandings from './NFCStandings'
 import afcLogo from '../../img/afcLogo.png'
 import nfcLogo from '../../img/nfcLogo.png'
 
@@ -87,27 +89,24 @@ const useStyles = makeStyles({
   },
 })
 
-// Standings API data
-const API =
-  'https://api.sportsdata.io/v3/nfl/scores/json/Standings/2022?key=1f12ca4661284f288d5f6bbd9e7e503b'
-
-const AFC = [
-  { id: 1, div: 'AFC', con: 'West' },
-  { id: 2, div: 'AFC', con: 'East' },
-  { id: 3, div: 'AFC', con: 'North' },
-  { id: 4, div: 'AFC', con: 'South' },
-]
-const NFC = [
-  { id: 5, div: 'NFC', con: 'West' },
-  { id: 6, div: 'NFC', con: 'East' },
-  { id: 7, div: 'NFC', con: 'North' },
-  { id: 8, div: 'NFC', con: 'South' },
-]
+//
+const weekAPI =
+  'https://api.sportsdata.io/v3/nfl/scores/json/CurrentWeek?key=1f12ca4661284f288d5f6bbd9e7e503b'
 
 const Standings = () => {
   const classes = useStyles()
+  //
+  const [week, setWeek] = useState(0)
+  useEffect(() => {
+    fetch(weekAPI)
+      .then(res => res.json())
+      .then(result => {
+        setWeek(result)
+      })
+  }, [])
+
   // standings state
-  const [standings, setStandings] = useState([])
+
   const [activeConference, setActiveConference] = useState('AFC')
   const handleAFC = () => {
     setActiveConference('AFC')
@@ -115,14 +114,6 @@ const Standings = () => {
   const handleNFC = () => {
     setActiveConference('NFC')
   }
-  //
-  useEffect(() => {
-    fetch(API)
-      .then(res => res.json())
-      .then(result => {
-        setStandings(result)
-      })
-  }, [])
 
   return (
     <Container className={classes.container}>
@@ -135,7 +126,7 @@ const Standings = () => {
               Standings
             </Typography>
             <Typography className={classes.week} variant="h3">
-              WEEK 18
+              WEEK {week}
             </Typography>
           </Grid>
           <Grid className={classes.bannerUpperLogo}>
@@ -189,53 +180,7 @@ const Standings = () => {
           </Grid>
         </Grid>
         {/* /////////////////////////////////////////////////////////////// */}
-        <Grid className={classes.bannerLower} container spacing={1}>
-          {activeConference === 'AFC' ? (
-            activeConference === 'NFC' ? (
-              <span>This is IF BOTH</span>
-            ) : (
-              <>
-                <Grid item xs={12} sm={12} md={3}>
-                  <Typography className={classes.seed} variant="h6">
-                    1. Chiefs 13-3
-                  </Typography>
-                </Grid>
-
-                <Grid item xs={12} sm={12} md={3}>
-                  <Typography className={classes.seed} variant="h6">
-                    2. Bills 13-3
-                  </Typography>
-                </Grid>
-
-                <Grid item xs={12} sm={12} md={3}>
-                  <Typography className={classes.seed} variant="h6">
-                    3. Bengals 12 - 4
-                  </Typography>
-                </Grid>
-              </>
-            )
-          ) : (
-            <>
-              <Grid item xs={12} sm={12} md={3}>
-                <Typography className={classes.seed} variant="h6">
-                  1. Eagles 13 - 4
-                </Typography>
-              </Grid>
-
-              <Grid item xs={12} sm={12} md={3}>
-                <Typography className={classes.seed} variant="h6">
-                  2. Vikings 13 - 4
-                </Typography>
-              </Grid>
-
-              <Grid item xs={12} sm={12} md={3}>
-                <Typography className={classes.seed} variant="h6">
-                  3. 49ers 13 - 4
-                </Typography>
-              </Grid>
-            </>
-          )}
-        </Grid>
+        <Grid className={classes.bannerLower} container spacing={1}></Grid>
       </Grid>
 
       {/* // ---- 2 POSSIBLE TERNARY TRUTHS - if both then Expression 1  */}
@@ -243,51 +188,105 @@ const Standings = () => {
         activeConference === 'NFC' ? (
           <span></span>
         ) : (
-          <Grid className={classes.standingsBoard} container spacing={3}>
-            {AFC.map(team => {
-              return (
-                <Grid
-                  key={team.id}
-                  className={classes.conference}
-                  item
-                  xs={12}
-                  sm={12}
-                  md={3}
-                >
-                  <StandingsBoard
-                    standings={standings}
-                    div={team.div}
-                    con={team.con}
-                  />
-                </Grid>
-              )
-            })}
-          </Grid>
+          <AFCStandings />
         )
       ) : (
-        <Grid className={classes.standingsBoard} container spacing={3}>
-          {NFC.map(team => {
-            return (
-              <Grid
-                key={team.id}
-                className={classes.conference}
-                item
-                xs={12}
-                sm={12}
-                md={3}
-              >
-                <StandingsBoard
-                  standings={standings}
-                  div={team.div}
-                  con={team.con}
-                />
-              </Grid>
-            )
-          })}
-        </Grid>
+        <NFCStandings />
       )}
     </Container>
   )
 }
 
 export default Standings
+
+// {activeConference === 'AFC' ? (
+//   activeConference === 'NFC' ? (
+//     <span>This is IF BOTH</span>
+//   ) : (
+//     <>
+//       <Grid item xs={12} sm={12} md={3}>
+//         <Typography className={classes.seed} variant="h6">
+//           1. Chiefs 13-3
+//         </Typography>
+//       </Grid>
+
+//       <Grid item xs={12} sm={12} md={3}>
+//         <Typography className={classes.seed} variant="h6">
+//           2. Bills 13-3
+//         </Typography>
+//       </Grid>
+
+//       <Grid item xs={12} sm={12} md={3}>
+//         <Typography className={classes.seed} variant="h6">
+//           3. Bengals 12 - 4
+//         </Typography>
+//       </Grid>
+//     </>
+//   )
+// ) : (
+//   <>
+//     <Grid item xs={12} sm={12} md={3}>
+//       <Typography className={classes.seed} variant="h6">
+//         1. Eagles 13 - 4
+//       </Typography>
+//     </Grid>
+
+//     <Grid item xs={12} sm={12} md={3}>
+//       <Typography className={classes.seed} variant="h6">
+//         2. Vikings 13 - 4
+//       </Typography>
+//     </Grid>
+
+//     <Grid item xs={12} sm={12} md={3}>
+//       <Typography className={classes.seed} variant="h6">
+//         3. 49ers 13 - 4
+//       </Typography>
+//     </Grid>
+//   </>
+// )}
+
+// {activeConference === 'AFC' ? (
+//   activeConference === 'NFC' ? (
+//     <span>This is IF BOTH</span>
+//   ) : (
+//     <>
+//       <Grid item xs={12} sm={12} md={3}>
+//         <Typography className={classes.seed} variant="h6">
+//           1. Chiefs 13-3
+//         </Typography>
+//       </Grid>
+
+//       <Grid item xs={12} sm={12} md={3}>
+//         <Typography className={classes.seed} variant="h6">
+//           2. Bills 13-3
+//         </Typography>
+//       </Grid>
+
+//       <Grid item xs={12} sm={12} md={3}>
+//         <Typography className={classes.seed} variant="h6">
+//           3. Bengals 12 - 4
+//         </Typography>
+//       </Grid>
+//     </>
+//   )
+// ) : (
+//   <>
+//     <Grid item xs={12} sm={12} md={3}>
+//       <Typography className={classes.seed} variant="h6">
+//         1. Eagles 13 - 4
+//       </Typography>
+//     </Grid>
+
+//     <Grid item xs={12} sm={12} md={3}>
+//       <Typography className={classes.seed} variant="h6">
+//         2. Vikings 13 - 4
+//       </Typography>
+//     </Grid>
+
+//     <Grid item xs={12} sm={12} md={3}>
+//       <Typography className={classes.seed} variant="h6">
+//         3. 49ers 13 - 4
+//       </Typography>
+//     </Grid>
+//   </>
+// )}
