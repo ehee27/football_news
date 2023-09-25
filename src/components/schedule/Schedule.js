@@ -38,8 +38,8 @@ const useStyles = makeStyles({
     justifyContent: 'center',
     alignItems: 'center',
     color: 'orange',
-    fontSize: '13pt',
-    width: '20%',
+    fontSize: '10pt',
+    width: '10%',
     // border: '1pt solid red',
   },
 
@@ -53,8 +53,11 @@ const useStyles = makeStyles({
     // border: '1pt solid red',
   },
 
-  matchupTeams: {
-    // color: 'green',
+  matchup: {
+    display: 'flex',
+    justifyContent: 'space-around',
+    alignItems: 'center',
+    color: 'green',
   },
   moneyLine: {
     backgroundColor: 'rgb(145, 145, 145)',
@@ -103,7 +106,7 @@ const TVSchedule = () => {
             <div className={classes.box}>
               <div className={classes.date}>{item.DateTime.slice(5, 10)}</div>
               {/* ------------- */}
-              <div className={classes.tvData}>
+              <div className={classes.matchup}>
                 {item.AwayTeam} - {item.HomeTeam}
               </div>
 
