@@ -45,7 +45,7 @@ const useStyles = makeStyles({
 
   tvData: {
     display: 'flex',
-    justifyContent: 'space-around',
+    justifyContent: 'center',
     alignItems: 'center',
     color: 'black',
     fontSize: '10pt',
@@ -111,21 +111,39 @@ const TVSchedule = () => {
               </div>
 
               <div className={classes.tvData}>
-                {item.Channel}
+                {/* {item.Channel} */}
 
                 {item.Channel === 'AMAZON' ? (
                   <img
                     src={AMAZON}
                     alt="tv-logo"
-                    height="30px"
+                    height="25px"
                     width="40px"
                   ></img>
                 ) : item.Channel === 'FOX' ? (
-                  <img src={FOX} alt="tv-logo" height="30px" width="40px"></img>
+                  <img
+                    src={FOX}
+                    alt="tv-logo"
+                    height="25
+                  px"
+                    width="40px"
+                  ></img>
                 ) : item.Channel === 'CBS' ? (
-                  <img src={CBS} alt="tv-logo" height="30px" width="40px"></img>
+                  <img
+                    src={CBS}
+                    alt="tv-logo"
+                    height="25
+                  px"
+                    width="40px"
+                  ></img>
                 ) : item.Channel === 'NBC' ? (
-                  <img src={NBC} alt="tv-logo" height="30px" width="40px"></img>
+                  <img
+                    src={NBC}
+                    alt="tv-logo"
+                    height="25
+                  px"
+                    width="40px"
+                  ></img>
                 ) : (
                   <span></span>
                 )}
@@ -133,7 +151,10 @@ const TVSchedule = () => {
               <Grid className={classes.moneyLine} container spacing={0}>
                 MoneyLine:{' '}
                 <div style={{ color: 'lime' }}>
-                  {item.HomeTeamMoneyLine} - {item.AwayTeamMoneyLine}
+                  <span style={{ color: 'white' }}>Home:</span>
+                  {item.HomeTeamMoneyLine}{' '}
+                  <span style={{ color: 'white' }}>Away:</span>{' '}
+                  {item.AwayTeamMoneyLine}
                 </div>
               </Grid>
             </div>
