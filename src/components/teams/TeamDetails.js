@@ -77,7 +77,7 @@ const TeamDetails = ({ teams }) => {
     )
       .then(res => res.json())
       .then(result => {
-        console.log(result)
+        // console.log(result)
         setNews(result)
       })
   }, [])

@@ -45,7 +45,6 @@ const useStyles = makeStyles({
 })
 
 const TeamCard = ({ team }) => {
-  // console.log(team)
   //
   const classes = useStyles()
   return (

@@ -21,7 +21,6 @@ const NewsFeed = () => {
     fetch(gamesAPI)
       .then(res => res.json())
       .then(result => {
-        // console.log('This is the news----', result)
         setNews(result)
       })
   }, [])

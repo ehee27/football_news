@@ -22,13 +22,12 @@ const TeamSchedule = () => {
       .then(res => res.json())
       .then(result => {
         // setGames(result)
-        console.log(result)
+        // console.log(result)
       })
   }, [games])
 
   // fetchGames is called on submit and re-fetches the selected year and week
   const fetchGames = (year, week) => {
-    console.log('This is the fetch games', year, week)
     fetch(
       `https://api.sportsdata.io/v3/nfl/scores/json/TeamGameStats/${year}/${week}?key=4f26331b9d48493c8ccbbe65530002fa`
     )
@@ -41,11 +40,11 @@ const TeamSchedule = () => {
   // hadles the year and week selection
   const handleYear = e => {
     setYear(e.target.value)
-    console.log('YEAR')
+    // console.log('YEAR')
   }
   const handleWeek = e => {
     setWeek(e.target.value)
-    console.log('WEEK')
+    // console.log('WEEK')
   }
   const handleSubmit = e => {
     e.preventDefault()

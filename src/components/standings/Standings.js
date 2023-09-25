@@ -117,9 +117,7 @@ const Standings = () => {
 
   return (
     <Container className={classes.container}>
-      {/* /////////////////////////////////////////////////////////////// */}
       <Grid className={classes.standingsBanner} container spacing={0}>
-        {/* /////////////////////////////////////////////////////////////// */}
         <Grid className={classes.bannerUpper} item xs={12} sm={12} md={6}>
           <Grid className={classes.bannerUpperTitle}>
             <Typography className={classes.title} variant="h6">
@@ -179,7 +177,7 @@ const Standings = () => {
             </Button>
           </Grid>
         </Grid>
-        {/* /////////////////////////////////////////////////////////////// */}
+
         <Grid className={classes.bannerLower} container spacing={1}></Grid>
       </Grid>
 

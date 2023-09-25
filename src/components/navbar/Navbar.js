@@ -2,8 +2,7 @@ import { Container, Typography, Grid, makeStyles } from '@material-ui/core'
 import { Link } from 'react-router-dom'
 import './navbar.css'
 import Menu from './Menu'
-import Schedule from '../schedule/ScoreBoard'
-import Standings from '../standings/Standings'
+import ScoreBoard from '../schedule/ScoreBoard'
 //
 const useStyles = makeStyles({
   container: {
@@ -36,7 +35,7 @@ const Navbar = () => {
   return (
     <Container className={classes.container}>
       <Grid className={classes.navTop}>
-        <Schedule />
+        <ScoreBoard />
       </Grid>
       <Grid className={classes.navBottom} container spacing={2}>
         <Grid item className={classes.bottomLeft} xs={12} sm={12} md={6}>

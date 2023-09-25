@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import './App.css'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
-// import { TeamsContext } from './components/context/teamsContext'
+
 //
 import Navbar from './components/navbar/Navbar'
 import Footer from './components/Footer'
@@ -10,11 +10,12 @@ import TeamList from './components/teams/TeamList'
 import TeamDetails from './components/teams/TeamDetails'
 import ScoreBoard from './components/schedule/ScoreBoard'
 import Standings from './components/standings/Standings'
-import Schedule from './components/schedule/Schedule'
+// import TVSchedule from './components/schedule/TVSchedule'
+import TVSchedule from './components/schedule/Schedule'
 import Notfound from './components/Notfound'
 import AFCStandings from './components/standings/AFCStandings'
 import NFCStandings from './components/standings/NFCStandings'
-// import { TeamsContextProvider } from './components/context/teamsContext'
+
 //
 import {
   createTheme,
@@ -75,8 +76,8 @@ function App() {
   //
   const [teams, setTeams] = useState([])
   const [schedule, setSchedule] = useState([])
-  const [standings, setStandings] = useState([])
   //
+
   useEffect(() => {
     fetch(API_TEAMS)
       .then(res => res.json())
@@ -91,18 +92,10 @@ function App() {
         setSchedule(result)
       })
   }, [schedule])
-  // useEffect(() => {
-  //   fetch(standingsAPI)
-  //     .then(res => res.json())
-  //     .then(result => {
-  //       setStandings(result)
-  //     })
-  // }, [standings])
 
   return (
     <ThemeProvider theme={fontTheme}>
       <ThemeProvider theme={theme}>
-        {/* <TeamsContextProvider> */}
         <div className="App">
           <Router>
             <Navbar />
@@ -113,7 +106,10 @@ function App() {
               <Route path="teams/:id" element={<TeamDetails teams={teams} />} />
               <Route path="scoreboard" element={<ScoreBoard />} />
               <Route path="standings" element={<Standings />} />
-              <Route path="recap" element={<Schedule schedule={schedule} />} />
+              <Route
+                path="recap"
+                element={<TVSchedule schedule={schedule} />}
+              />
               <Route path="afc-standings" element={<AFCStandings />} />
               <Route path="nfc-standings" element={<NFCStandings />} />
               <Route exact path="*" element={<Notfound />} />
@@ -121,7 +117,6 @@ function App() {
             <Footer />
           </Router>
         </div>
-        {/* </TeamsContextProvider> */}
       </ThemeProvider>
     </ThemeProvider>
   )

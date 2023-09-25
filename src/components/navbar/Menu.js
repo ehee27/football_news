@@ -30,13 +30,7 @@ const Menu = () => {
         <Link className={classes.link} to="/teams">
           TEAMS
         </Link>
-        {/* <Link to="/standings">STANDINGS</Link> */}
-        {/* <Link className={classes.link} to="/recap">
-          RECAP
-        </Link> */}
-        {/* <Link className={classes.link} to="/recap">
-          NEWS
-        </Link> */}
+
         <a className={classes.link} href="#standings">
           STANDINGS
         </a>

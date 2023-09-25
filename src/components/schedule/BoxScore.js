@@ -14,10 +14,7 @@ const BoxScore = ({ game }) => {
           <div className="score">{game.AwayScore}</div>
         </div>
       </div>
-      <div className="box-body">
-        {/* <button className="body-button">Button 1</button>
-        <button className="body-button">Button 2</button> */}
-      </div>
+      <div className="box-body"></div>
     </div>
   )
 }

@@ -1,16 +1,29 @@
-import React, { useState, useEffect, useContext } from 'react'
-import { Container, Typography, Grid, makeStyles } from '@material-ui/core'
-import { format } from 'date-fns'
+import React, { useState, useEffect } from 'react'
+import { Container, makeStyles, Grid } from '@material-ui/core'
+import AMAZON from '../../img/AMAZON.png'
+import FOX from '../../img/FOX.png'
+import CBS from '../../img/CBS.png'
+import NBC from '../../img/NBC.png'
 
 const useStyles = makeStyles({
   container: {
     padding: '0px 10px 10px 0px',
     // border: '3pt solid pink',
   },
+  box: {
+    backgroundColor: 'rgb(238, 238, 238)',
+    display: 'flex',
+    justifyContent: 'space-around',
+
+    borderRadius: '.25rem',
+    padding: '2px',
+    marginBottom: '3px',
+  },
+
   gameBox: {
     backgroundColor: 'rgb(238, 238, 238)',
     display: 'flex',
-    justifyContent: 'space-between',
+    // justifyContent: 'space-between',
     border: '1pt solid white',
     borderRadius: '.25rem',
     marginBottom: '5px',
@@ -22,20 +35,24 @@ const useStyles = makeStyles({
   },
   date: {
     display: 'flex',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    color: 'orange',
-    fontSize: '10pt',
-    width: '20%',
-  },
-  matchup: {
-    display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
-    // border: '2pt solid rgb(212, 212, 212)',
-    marginLeft: '10px',
+    color: 'orange',
+    fontSize: '13pt',
     width: '20%',
+    // border: '1pt solid red',
   },
+
+  tvData: {
+    display: 'flex',
+    justifyContent: 'space-around',
+    alignItems: 'center',
+    color: 'black',
+    fontSize: '10pt',
+    width: '20%',
+    // border: '1pt solid red',
+  },
+
   matchupTeams: {
     // color: 'green',
   },
@@ -46,9 +63,9 @@ const useStyles = makeStyles({
     fontSize: '10pt',
     fontWeight: '900',
     display: 'flex',
-    justifyContent: 'center',
+    justifyContent: 'space-around',
     alignItems: 'center',
-    width: '45%',
+    width: '35%',
   },
   moneyLineOdds: {
     marginLeft: '10px',
@@ -56,46 +73,70 @@ const useStyles = makeStyles({
   },
 })
 
-const TVSchedule = ({ schedule }) => {
+const upcomingWeekAPI =
+  'https://api.sportsdata.io/v3/nfl/scores/json/UpcomingWeek?key=1f12ca4661284f288d5f6bbd9e7e503b'
+
+const TVSchedule = () => {
   const classes = useStyles()
+  const [week, setWeek] = useState(0)
+  const [schedule, setSchedule] = useState([])
   //
-  // console.log('This is the schedule', schedule)
-  //
-  let date = new Intl.DateTimeFormat('en-US', {
-    dateStyle: 'full',
-    timeStyle: 'full',
-  }).format(new Date())
-  // console.log('This is the date format----', date)
+  useEffect(() => {
+    fetch(upcomingWeekAPI)
+      .then(res => res.json())
+      .then(response => setWeek(response))
+  }, [])
+  useEffect(() => {
+    fetch(
+      `https://api.sportsdata.io/v3/nfl/scores/json/ScoresByWeek/2023/${week}?key=1f12ca4661284f288d5f6bbd9e7e503b`
+    )
+      .then(res => res.json())
+      .then(response => setSchedule(response))
+  }, [week])
 
   //
   return (
     <Container className={classes.container}>
-      <Grid>
-        {schedule?.map((item, i) => {
-          return (
-            <Grid className={classes.gameBox} key={i}>
-              <Typography className={classes.date}>{item.Date}</Typography>
+      {schedule?.map(item => {
+        return (
+          <div key={item.GameKey}>
+            <div className={classes.box}>
+              <div className={classes.date}>{item.DateTime.slice(5, 10)}</div>
+              {/* ------------- */}
+              <div className={classes.tvData}>
+                {item.AwayTeam} - {item.HomeTeam}
+              </div>
 
-              <Grid className={classes.broadcast}>{item.Channel}</Grid>
+              <div className={classes.tvData}>
+                {item.Channel}
 
-              <Grid className={classes.matchup}>
-                <Typography className={classes.matchupTeams}>
-                  {item.AwayTeam} vs {item.HomeTeam}
-                </Typography>
+                {item.Channel === 'AMAZON' ? (
+                  <img
+                    src={AMAZON}
+                    alt="tv-logo"
+                    height="30px"
+                    width="40px"
+                  ></img>
+                ) : item.Channel === 'FOX' ? (
+                  <img src={FOX} alt="tv-logo" height="30px" width="40px"></img>
+                ) : item.Channel === 'CBS' ? (
+                  <img src={CBS} alt="tv-logo" height="30px" width="40px"></img>
+                ) : item.Channel === 'NBC' ? (
+                  <img src={NBC} alt="tv-logo" height="30px" width="40px"></img>
+                ) : (
+                  <span></span>
+                )}
+              </div>
+              <Grid className={classes.moneyLine} container spacing={0}>
+                MoneyLine:{' '}
+                <div style={{ color: 'lime' }}>
+                  {item.HomeTeamMoneyLine} - {item.AwayTeamMoneyLine}
+                </div>
               </Grid>
-              <Grid className={classes.moneyLine}>
-                MoneyLine:
-                <Typography className={classes.moneyLineOdds}>
-                  Home: {item.HomeTeamMoneyLine}
-                </Typography>
-                <Typography className={classes.moneyLineOdds}>
-                  Away: {item.AwayTeamMoneyLine}
-                </Typography>
-              </Grid>
-            </Grid>
-          )
-        })}
-      </Grid>
+            </div>
+          </div>
+        )
+      })}
     </Container>
   )
 }

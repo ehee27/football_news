@@ -44,15 +44,11 @@ const useStyles = makeStyles({
   },
 })
 
-const seasonAPI =
-  'https://api.sportsdata.io/v3/nfl/scores/json/CurrentSeason?key=1f12ca4661284f288d5f6bbd9e7e503b'
-
 const standingsAPI = `https://api.sportsdata.io/v3/nfl/scores/json/Standings/2023?key=1f12ca4661284f288d5f6bbd9e7e503b`
 
 const Home = ({ schedule }) => {
   const classes = useStyles()
   //
-  const [season, setSeason] = useState(0)
   const [standings, setStandings] = useState({})
   //
   useEffect(() => {
